@@ -17,7 +17,7 @@ npm install leaflet vue2-leaflet --save
 npm run serve
 ```
 
-### Compiles and minifies for production
+<!-- ### Compiles and minifies for production
 ```
 npm run build
 ```
@@ -25,7 +25,7 @@ npm run build
 ### Lints and fixes files
 ```
 npm run lint
-```
+``` -->
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
