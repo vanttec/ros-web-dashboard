@@ -5,6 +5,11 @@
 npm install
 ```
 
+### Install [Vue2Leaflet](https://vue2-leaflet.netlify.app/)
+'''
+npm install leaflet vue2-leaflet --save
+'''
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
