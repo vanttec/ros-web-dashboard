@@ -4,7 +4,7 @@
 
 ## Project setup
 ```
-npm install
+npm install vue
 ```
 
 ### Install [Vue2Leaflet](https://vue2-leaflet.netlify.app/)
