@@ -1,5 +1,7 @@
 # web-dashboard
 
+## In the client folder:
+
 ## Project setup
 ```
 npm install
