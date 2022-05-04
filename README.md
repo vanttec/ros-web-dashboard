@@ -1,8 +1,6 @@
 # web-dashboard
 
-## In the client folder:
-
-## Project setup
+## Project setup (inside the client folder)
 ```
 npm install vue
 ```
