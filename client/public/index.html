@@ -1,17 +1,116 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
-</html>
+
+<body>
+
+    <!--------HEADER----->
+    <div class="header">
+      <img src="/img/LogoBlanco.png" alt="LogoBlanco" height="70"> 
+    </div> 
+
+    <!--------MENU------->
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/index.html">DASHBOARD</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/usv.html">USV</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/usv.html">UUV</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/usv.html">UGV</a>
+      </li>
+    </ul>
+
+    <!----------SECTION1---------->
+    <div class="container-fluid">
+      <div class ="row justify-content-center">
+        <div class="div1">
+          <h5 class="div2">MAPA</h5>
+          <div id="map"> </div>
+        </div>
+      </div>
+    </div>
+
+    <!----------SECTION2----------->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <div class="div1">
+          <h5 class="div2">PERCEPTION DATA</h5>
+          <img src="/img/tiger.jpg" class="img-fluid divImg" alt="Un tigre" width="300" height="400">
+          <img src="/img/tiger2.jpg" class="img-fluid divImg" alt="Un tigre" width="300" height="400">
+        </div>
+      </div>
+        <div class="col-6">
+          <div class="div1">
+          <h5 class="div2">VEHICLES STATE</h5>
+          <div>
+          <br><p> Pose     (x,y,theta) </p></br>
+          <!--Arreglar esto-->
+          <!-- <img src="/img/tiger.jpg" class="img-fluid divImg" alt="Un tigre" width="300" height="200"> -->
+          <br><p class="text1">Speed</p><p class="text2">(u,v,r)</p></br>
+          <br><p class="text1">Acceleration</p><p class="text2">(u',v',r')</p></br>
+          <br><p> Next Waypoint                 (x_d,y_d,theta_d) </p></br>
+          <br><p> Thrust                 (left, right) </p></br>
+
+          </div>
+          </div>
+      </div>
+    </div>
+
+    <!----------SECTION3----------->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <div class="div1">
+          <h5 class="div2">LAST CONNECTION</h5>
+        
+        </div>
+      </div>
+        <div class="col-6">
+          <div class="div1">
+          <h5 class="div2">BEHAVIOUR STATUS</h5>
+          <br><p> Machine State </p>
+          <p>State0 </p>
+        </div>
+      </div>
+      </div>
+    </div>
+
+      <!----------SECTION4----------->
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <div class="div1">
+            <h5 class="div2">BATTERY STATUS</h5>
+          
+          </div>
+        </div>
+          <div class="col-6">
+            <div class="div1">
+            <h5 class="div2">CONNECTION TYPE</h5>
+            
+          </div>
+        </div>
+        </div>
+      </div>
+
+    <!------FOOTER----------->
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+      <div class="container text-center">
+        <small>Copyright &copy; Vanttec 2022</small>
+      </div>
+    </footer>
+
+</body>
+<script src="../src/main.js"></script>
+
+</html> 

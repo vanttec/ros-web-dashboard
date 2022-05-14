@@ -8,7 +8,7 @@ import { Icon } from 'leaflet';
 Vue.config.productionTip = false
 new Vue({
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#map')
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
