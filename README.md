@@ -28,4 +28,4 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-![Alt text](/client/docs/webpagev1.PNG?raw=true)
+![Alt text](/docs/webpagev1.PNG?raw=true)
