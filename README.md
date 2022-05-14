@@ -2,12 +2,12 @@
 
 ## Project setup (inside the client folder)
 ```
-npm install vue
+npm install vue morgan body-parser cors express mongodb mongoose nodemon
 ```
 
-### Install [Vue2Leaflet](https://vue2-leaflet.netlify.app/)
+### Install [vue-leaflet](https://www.npmjs.com/package/@vue-leaflet/vue-leaflet)
 ```
-npm install leaflet vue2-leaflet --save
+npm i -D @vue-leaflet/vue-leaflet @babel/cli @babel/core @babel/node @babel/preset-env @vue/compiler-sfc babel-loader vue-loader webpack webpack-cli
 ```
 
 ### Compiles and hot-reloads for development

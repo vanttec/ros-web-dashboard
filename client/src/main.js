@@ -2,13 +2,12 @@ import 'leaflet/dist/leaflet.css';
 
 import Vue from 'vue'
 // import App from './App.vue'
-import App from './components/map.vue'
+import App from './app/components/map.vue'
 import { Icon } from 'leaflet';
 
 Vue.config.productionTip = false
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+
+Vue.createApp(App).$mount('#app')
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({

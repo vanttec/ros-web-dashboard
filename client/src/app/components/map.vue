@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import {LMap, LTileLayer, LMarker, LPolyline} from 'vue2-leaflet';
+import {LMap, LTileLayer, LMarker, LPolyline} from '@vue-leaflet/vue-leaflet';
 
 export default {
   name: 'App',
