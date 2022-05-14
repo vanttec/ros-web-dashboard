@@ -1,5 +1,5 @@
 <template>
-  <l-map style="height: 300px" :zoom="zoom" :center="center">
+    <l-map style="height: 350px; width: 500px" :zoom="zoom" :center="center">
     <l-tile-layer :url="url" :attribution="attribution" :options="{ maxZoom: 19 }"></l-tile-layer>
     <l-marker :lat-lng="markerLatLng"></l-marker>
     <l-polyline :lat-lngs="polyline.latlngs" :color="polyline.color"></l-polyline>
