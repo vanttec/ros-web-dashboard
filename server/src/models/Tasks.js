@@ -43,4 +43,5 @@ const taskSchema2 = new Schema({
 });
 
 
-module.exports = model('Task', taskSchema, taskSchema2)
+module.exports = model('Task_Roboboat', taskSchema)
+module.exports = model('Task_Robosub', taskSchema2)
