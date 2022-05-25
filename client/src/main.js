@@ -6,8 +6,9 @@ import App from './app/components/map.vue'
 import { Icon } from 'leaflet';
 
 Vue.config.productionTip = false
-
-Vue.createApp(App).$mount('#app')
+new Vue({
+  render: h => h(App),
+}).$mount('#map')
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
