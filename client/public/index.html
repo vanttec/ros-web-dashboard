@@ -4,30 +4,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
 
 <body>
 
-    <!--------HEADER----->
-    <div class="header">
-      <img src="/img/LogoBlanco.png" alt="LogoBlanco" height="70"> 
-    </div> 
-
-    <!--------MENU------->
-    <ul class="nav nav-pills nav-fill">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/index.html">DASHBOARD</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/usv.html">USV</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/usv.html">UUV</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/usv.html">UGV</a>
-      </li>
-    </ul>
+<!------------HEADER COMPONENT---------->
+<div id="app" class="container">
+  <menu-component></menu-component>
+</div>
 
     <!----------SECTION1---------->
     <div class="container-fluid">
@@ -45,8 +30,8 @@
         <div class="col-6">
           <div class="div1">
           <h5 class="div2">PERCEPTION DATA</h5>
-          <img src="/img/tiger.jpg" class="img-fluid divImg" alt="Un tigre" width="300" height="400">
-          <img src="/img/tiger2.jpg" class="img-fluid divImg" alt="Un tigre" width="300" height="400">
+          <img src="../public/img/tiger.jpg" class="img-fluid divImg" alt="Un tigre" width="300" height="400">
+          <img src="../public/img/tiger2.jpg" class="img-fluid divImg" alt="Un tigre" width="300" height="400">
         </div>
       </div>
         <div class="col-6">
@@ -103,7 +88,21 @@
         </div>
       </div>
 
-    <!------FOOTER----------->
+      <script src="https://unpkg.com/vue@3"></script>
+      <script src="../src/main.js"></script>
+      <script src="../src/components/app.component.js"></script>
+      <script src="../src/components/menu.component.js"></script>
+      <script src="../src/components/footer.component.js"></script>
+      <script>
+        const mountedApp = app.mount('#app');
+      </script>
+      
+    <!------------FOOTER COMPONENT---------->
+   <!-- 
+    <div id="app" class="container">
+      <footer-component></footer-component>
+    </div>
+   --> 
     <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
       <div class="container text-center">
         <small>Copyright &copy; Vanttec 2022</small>
@@ -111,6 +110,5 @@
     </footer>
 
 </body>
-<script src="../src/main.js"></script>
 
 </html> 

@@ -3,56 +3,34 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
 
-  <style>
-    .div1 {
-        background-color: #a9a9a9;
-        margin: 10px;
-    }
-    .div2 {
-        background-color: #0200cd;
-        background-clip: content-box;
-        color: white;
-        text-decoration-color: white;
-        text-align: center;
-    }
-
-    .divImg{
-      margin:10px;
-      
-    }
-</style>
-
 <body>
+    <div id="app" class="container">
+      <menu-component :user="userName" @response="(msg) => childMsg = msg"></menu-component>
+    </div>
 
-    <!--------HEADER----->
-    <div class="header">
-      <img src="/img/LogoBlanco.png" alt="LogoBlanco" height="70"> 
-    </div> 
+    <!----------SECTION1---------->
+    <div class="container-fluid">
+      <div class ="row justify-content-center">
+        <div class="div1">
+          <h5 class="div2">MAPA</h5>
+          <div id="map"> </div>
+        </div>
+      </div>
+    </div>
 
-    <!--------MENU------->
-    <ul class="nav nav-pills nav-fill">
-      <li class="nav-item">
-        <a class="nav-link"  href="/index.html">DASHBOARD</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/usv.html">USV</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/uuv.html">UUV</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/ugv.html">UGV</a>
-      </li>
-    </ul>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="../src/main.js"></script>
+    <script src="../src/components/app.component.js"></script>
+    <script src="../src/components/menu.component.js"></script>
+    <script src="../src/components/footer.component.js"></script>
+    <script>
+      const mountedApp = app.mount('#app');
+    </script>
 
-   
-
-    
-
-
-    <!------FOOTER----------->
+    <!------------FOOTER COMPONENT---------->
     <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
       <div class="container text-center">
         <small>Copyright &copy; Vanttec 2022</small>
