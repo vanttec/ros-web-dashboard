@@ -166,7 +166,7 @@ export default ({
                 return await response.json();
             }
             catch(error){
-                alert('Hubo un error favor de contactar al admnistrador. \n', url);
+                alert('Hubo un error favor de contactar al admnistrador. \n' + error);
             }
         },
         async getVehicles(){
