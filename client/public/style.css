@@ -33,6 +33,14 @@
     text-decoration-color: white;
     text-align: center;
 }
+
+.div3 {
+  background-color: white;
+  text-align: center;
+}
+
+
+
 .divImg{
   margin:5px;
 }
@@ -43,4 +51,22 @@
 .text2{
   text-align: right;
   display:inline-block;
+}
+
+.map {
+  height: 400px;
+  width: 1090px;
+}
+
+.carousel .item {
+  height: 32 rem;
+  background: #a9a9a9;
+}
+
+.item img {
+    position: absolute;
+    object-fit: scale-down;
+    top: 0;
+    left: 0;
+    min-height: 150px;
 }
