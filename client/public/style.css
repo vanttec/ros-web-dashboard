@@ -21,6 +21,11 @@
     background-color: black;
 }
 
+.nav-link{
+  background-color: rgb(4, 16, 41);
+  color: #ffffff;
+}
+
 .div1{
     text-align: center;
     background-color: #a9a9a9;
