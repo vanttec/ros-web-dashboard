@@ -21,6 +21,12 @@
     background-color: black;
 }
 
+
+.nav-link{
+  background-color: rgb(4,16,41);
+  color:#ffffff;
+}
+
 .div1{
     text-align: center;
     background-color: #a9a9a9;
@@ -59,7 +65,7 @@
 }
 
 .carousel .item {
-  height: 32 rem;
+  height: 100px;
   background: #a9a9a9;
 }
 
@@ -68,5 +74,5 @@
     object-fit: scale-down;
     top: 0;
     left: 0;
-    min-height: 150px;
+    height: 100px;
 }
