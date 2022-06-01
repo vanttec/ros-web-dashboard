@@ -155,24 +155,23 @@ export default ({
         this.getVehicles();
     },
     methods: {
-        async CallApi(url){
-        // async CallApi(url, method, data){
-            // const header = data == null? { 	method: method,
-            //                                 headers: { 'Content-Type': 'application/json' }} :
-            //                              { 	method: method,
-            //                                 body: JSON.stringify(data),
-            //                                 headers: { 'Content-Type': 'application/json' }}
+        async CallApi(url, method, data){
+            const header = data == null? { 	method: method,
+                                            headers: { 'Content-Type': 'application/json' }} :
+                                         { 	method: method,
+                                            body: JSON.stringify(data),
+                                            headers: { 'Content-Type': 'application/json' }}
             try {
-                const response = await fetch(url);
+                const response = await fetch(url, header);
                 return await response.json();
             }
             catch(error){
-                alert('Hubo un error favor de contactar al admnistrador. \n' + error);
+                alert('Error. Contact admin. \n' + error);
             }
         },
         async getVehicles(){
-            this.vehicles = await this.CallApi('http://localhost:3000/api/vehicles/6292cbe677563879e33e9056');
-            // this.vehicles = await this.CallApi('http://localhost:3000/api/vehicles/6292cbe677563879e33e9056', 'GET', null);
+            var Id = this.vehicleId != ''? '/' + this.vehicleId : this.vehicleId;
+            this.vehicles = await this.CallApi(this.urlBase + '/api/vehicles/' + Id, 'GET', null);
             this.vehicleId = '';
         },
         // getTasks() {
@@ -239,6 +238,5 @@ export default ({
         //     this.task = new Task();
         // }
     })
-
     
 </script>

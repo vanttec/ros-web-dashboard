@@ -1,7 +1,7 @@
-import "vue"
-import App from '../src/components/boat_info.vue'
+const vue = require("vue");
+const App = require('../src/components/boat_info.vue');
 
-createApp(App).mount('#boat')
+Vue.createApp(App).mount('#boat');
 
 
 // var app = Vue.createApp({
