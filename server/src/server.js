@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const vehicle_routes =  require('./routes/vehicle.routes');
 const app = express();
 
@@ -8,9 +9,10 @@ const app = express();
 require('./mongo_connection');
 
 //settings
-app.set('port', process.env.PORT || 3000);
+app.set('port', 3000);
 
 //Middlewares
+app.use(cors());
 
 //Routes
 app.use('/api/vehicles', vehicle_routes);
