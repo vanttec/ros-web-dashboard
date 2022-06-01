@@ -65,7 +65,7 @@
 }
 
 .carousel .item {
-  height: 100px;
+  height: 32 rem;
   background: #a9a9a9;
 }
 
@@ -74,5 +74,6 @@
     object-fit: scale-down;
     top: 0;
     left: 0;
-    height: 100px;
+
+    min-height: 150px;
 }
