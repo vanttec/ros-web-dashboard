@@ -4,7 +4,7 @@
         <div class="row pt-5">
             <div class="col-md-4">
                 <div class="card">
-                 {/*      <form @submit.prevent="sendTask">
+                       <!-- <form @submit.prevent="sendTask">
                         <div class="card-body">
                             <div>
                                 <input type="text" v-model="vehicle._vehicle_name" placeholder="Insert vehicle name" class="form-control">
@@ -70,9 +70,8 @@
                          <div class="form-group">
                             <textarea cols="30" rows="10" class="form-control" placeholder="Insert a description"></textarea>
                         </div>
-                    </form>
+                    </form> -->
 
-                      */}
                 </div>
             </div>
             <div class="col-md-8">

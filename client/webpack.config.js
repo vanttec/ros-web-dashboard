@@ -8,7 +8,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
   // The application entry point
- entry: './client/src/main.js',
+ entry: './src/main.js',
   module: {
     rules: [
       {
@@ -34,8 +34,8 @@ module.exports = {
   // Where to compile the bundle
   // By default the output directory is `dist`
   output:  {
-    path: __dirname + '/client/src/dist',
-    filename: 'bundle.js'
+    path: __dirname + '/src/dist',
+    filename: 'boat.data.bundle.js'
   },
 //   devServer: {
 //     contentBase: path.join(__dirname, "../public"),
