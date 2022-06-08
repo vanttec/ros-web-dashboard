@@ -91,7 +91,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="vehicle in vehicles" :key="vehicle.id">
-                            <td>{{vehicle._name}}</td>
+                            <td>{{vehicle._vehicle_name}}</td>
                             <td>{{vehicle._description}}</td>
                             <td>{{vehicle._dimensions}}</td>
                             <td>{{vehicle._mass}}</td>
@@ -120,8 +120,8 @@
 
 <script>
 class Vehicle { // Por si una tarea tiene muchos campos, nos ahorramos escribir una por una
-    constructor(name, description, dimensions, mass, thruster_name, max_thrust, sensors, power_system, processor, comms, software ) {
-        this._vehicle_name = name,
+    constructor(vehicle_name, description, dimensions, mass, thruster_name, max_thrust, sensors, power_system, processor, comms, software ) {
+        this._vehicle_name = vehicle_name,
         this._description = description,
         this._dimensions = dimensions,
         this._mass = mass,
