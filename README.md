@@ -1,6 +1,6 @@
 # web-dashboard
 
-## Project setup (inside the client folder)
+## Project setup (cliente side)
 ```
 npm install vue
 ```
@@ -10,9 +10,12 @@ npm install vue
 npm install leaflet vue2-leaflet --save
 ```
 
-### Compiles and hot-reloads for development
+### Project startup (client side)
 ```
-npm run serve
+npm run dev
+```
+```
+npm run webpack
 ```
 
 <!-- ### Compiles and minifies for production
