@@ -8,7 +8,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
   // The application entry point
- entry: './src/main.js',
+ entry: './src/js/main.js',
   module: {
     rules: [
       {

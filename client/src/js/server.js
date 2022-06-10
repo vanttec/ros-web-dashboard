@@ -12,8 +12,8 @@ app.use(bodyParse.urlencoded({ extended: true }));
 app.use(bodyParse.json());
 
 // Static files : sends /public to server, where the html files are located
-app.use(express.static(__dirname + '/../public'));
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/../../public'));
+app.use(express.static(__dirname + '/../dist'));
 
 // Server is listening
 app.listen(app.get('port'), () => {
