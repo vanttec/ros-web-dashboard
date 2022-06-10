@@ -4,61 +4,61 @@
         <div class="row pt-5">
             <div class="col-md-4">
                 <div class="card">
-                       <form @submit.prevent="sendTask">
+                       <form @submit.prevent="sendVehicle">
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._vehicle_name" placeholder="Insert vehicle name" class="form-control">
+                                <input type="text" v-model="vehicle.vehicle_name" placeholder="Insert vehicle name" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._description" placeholder="Insert vehicle description" class="form-control">
+                                <input type="text" v-model="vehicle.description" placeholder="Insert vehicle description" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._dimensions" placeholder="Insert vehicle dimensions" class="form-control">
+                                <input type="text" v-model="vehicle.dimensions" placeholder="Insert vehicle dimensions" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._mass" placeholder="Insert vehicle mass" class="form-control">
+                                <input type="text" v-model="vehicle.mass" placeholder="Insert vehicle mass" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._thruster_name" placeholder="Insert thruster brand" class="form-control">
+                                <input type="text" v-model="vehicle.thruster_name" placeholder="Insert thruster brand" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._max_thrust" placeholder="Insert maximum thrust" class="form-control">
+                                <input type="text" v-model="vehicle.max_thrust" placeholder="Insert maximum thrust" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._sensors" placeholder="Insert sensors" class="form-control">
+                                <input type="text" v-model="vehicle.sensors" placeholder="Insert sensors" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._Power_System" placeholder="Insert Power System" class="form-control">
+                                <input type="text" v-model="vehicle.power_system" placeholder="Insert Power System" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._Processor" placeholder="Insert Processor" class="form-control">
+                                <input type="text" v-model="vehicle.processor" placeholder="Insert Processor" class="form-control">
                             </div>
                         </div>
 
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._communications" placeholder="Insert Comms" class="form-control">
+                                <input type="text" v-model="vehicle.communications" placeholder="Insert Comms" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._software" placeholder="Insert Software" class="form-control">
+                                <input type="text" v-model="vehicle.software" placeholder="Insert Software" class="form-control">
                             </div>
                         </div>
                         <template v-if="update == false">
@@ -90,23 +90,23 @@
                         <th>software</th>
                     </thead>
                     <tbody>
-                        <tr v-for="vehicle in vehicles" :key="vehicle.id">
-                            <td>{{vehicle._vehicle_name}}</td>
-                            <td>{{vehicle._description}}</td>
-                            <td>{{vehicle._dimensions}}</td>
-                            <td>{{vehicle._mass}}</td>
-                            <td>{{vehicle._thruster_name}}</td>
-                            <td>{{vehicle._max_thrust}}</td>
-                            <td>{{vehicle._sensors}}</td>
-                            <td>{{vehicle._Power_System}}</td>
-                            <td>{{vehicle._Processor}}</td>
-                            <td>{{vehicle._communications}}</td>
-                            <td>{{vehicle._software}}</td>
+                        <tr v-for="vehicle in vehicles" :key="vehicle._id">
+                            <td>{{vehicle.vehicle_name}}</td>
+                            <td>{{vehicle.description}}</td>
+                            <td>{{vehicle.dimensions}}</td>
+                            <td>{{vehicle.mass}}</td>
+                            <td>{{vehicle.thruster_name}}</td>
+                            <td>{{vehicle.max_thrust}}</td>
+                            <td>{{vehicle.sensors}}</td>
+                            <td>{{vehicle.Power_System}}</td>
+                            <td>{{vehicle.Processor}}</td>
+                            <td>{{vehicle.communications}}</td>
+                            <td>{{vehicle.software}}</td>
                             <td>
-                                <button @click="deleteTask(vehicle._id)" class="btn btn-danger">
+                                <button @click="deleteVehicle(vehicle._id)" class="btn btn-danger">
                                     Delete
                                 </button>
-                                <button @click="updateTask(vehicle._id)" class="btn btn-secondary">
+                                <button @click="updateVehicle(vehicle._id)" class="btn btn-secondary">
                                     Update
                                 </button>
                             </td>
@@ -121,17 +121,17 @@
 <script>
 class Vehicle { // Por si una tarea tiene muchos campos, nos ahorramos escribir una por una
     constructor(vehicle_name, description, dimensions, mass, thruster_name, max_thrust, sensors, power_system, processor, comms, software ) {
-        this._vehicle_name = vehicle_name,
-        this._description = description,
-        this._dimensions = dimensions,
-        this._mass = mass,
-        this._thruster_name = thruster_name,
-        this._max_thrust = max_thrust,
-        this._sensors = sensors,
-        this._Power_System = power_system,
-        this._Processor = processor,
-        this._communications = comms,
-        this._software = software
+        this.vehicle_name = vehicle_name,
+        this.description = description,
+        this.dimensions = dimensions,
+        this.mass = mass,
+        this.thruster_name = thruster_name,
+        this.max_thrust = max_thrust,
+        this.sensors = sensors,
+        this.Power_System = power_system,
+        this.Processor = processor,
+        this.communications = comms,
+        this.software = software
     }
 }
 export default ({
@@ -142,9 +142,6 @@ export default ({
             update: false,
             vehicle_to_update: '',
 
-            userName: '',
-            userType: '',
-            vehiclesCmb: [],
             vehicleId: '',
             urlBase: 'http://localhost:3000'
         }
@@ -156,10 +153,10 @@ export default ({
     methods: {
         async CallApi(url, method, data){
             const header = data == null? { 	method: method,
-                                            headers: { 'Content-Type': 'application/json' }} :
+                                            headers: { 'Accept': 'application/json','Content-Type': 'application/json' }} :
                                          { 	method: method,
                                             body: JSON.stringify(data),
-                                            headers: { 'Content-Type': 'application/json' }}
+                                            headers: { 'Accept': 'application/json','Content-Type': 'application/json' }}
             try {
                 const response = await fetch(url, header);
                 return await response.json();
@@ -169,73 +166,35 @@ export default ({
             }
         },
         async getVehicles(){
-            var Id = this.vehicleId != ''? '/' + this.vehicleId : this.vehicleId;
-            this.vehicles = await this.CallApi(this.urlBase + '/api/vehicles/' + Id, 'GET', null);
-            this.vehicleId = '';
+            // var Id = this.vehicleId != ''? '/' + this.vehicleId : this.vehicleId;
+            // this.vehicles = await this.CallApi(this.urlBase + '/api/vehicles/' + Id, 'GET', null);
+            this.vehicles = await this.CallApi(this.urlBase + '/api/vehicles/', 'GET', null);
+            console.log(this.vehicles);
+            // this.vehicleId = '';
         },
-        // getTasks() {
-        //     fetch('/api/vehicles/')
-        //                 .then(res => res.json())
-        //                 .then(data => {
-        //                     this.tasks = data
-        //                     console.log(this.tasks)
-        //                 });
-        // },
-        } //,
-        // // Use fetch to make petitions to server
-        // updateTask(id){
-        //     fetch('/api/customer/' + id)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         this.task = new Task(data.name, data.phone, data.addres, data.email, data.dateOfBirth); // Asks for all Tasks and fills table with them
-        //         this.update = true;
-        //         this.task_to_update = data._id;
-        //     });
-        // },
-        // deleteTask(id){
-        //     fetch('/api/customer/' + id, {
-        //         method: 'DELETE',
-        //         headers: {
-        //             'Accept': 'application/json',
-        //             'Content-type': 'application/json'
-        //         }
-        //     })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         this.getTasks(); // Asks for all Tasks and fills table with them
-        //     });
-        // },
-        // sendTask() {
-        //     if(this.update) {
-        //         fetch('/api/customer/' + this.task_to_update, {
-        //             method: 'PUT',
-        //             body: JSON.stringify(this.task),
-        //             headers: {
-        //                 'Accept': 'application/json',
-        //                 'Content-type': 'application/json'
-        //             }
-        //         })
-        //         .then(res => res.json())
-        //         .then(data => {
-        //             this.getTasks();
-        //         })
-        //         this.update = false;
-        //     } else {
-        //         fetch('/api/customer',{ // Save data to server
-        //             method: 'POST',
-        //             body: JSON.stringify(this.task),
-        //             headers: {
-        //                 'Accept': 'application/json',
-        //                 'Content-type': 'application/json'
-        //             }
-        //         })
-        //         .then(res => res.json()) // Convert server response from string to json format
-        //         .then(data => {
-        //             this.getTasks(); // Asks for all Tasks and fills table with them
-        //         })
-        //     }
-        //     this.task = new Task();
-        // }
-    })
+        async updateVehicle(id){
+            this.vehicle = await this.CallApi(this.urlBase + '/api/vehicles/' + id, 'GET', null);
+            this.update = true;
+            this.vehicle_to_update = this.vehicle._id;
+        },
+        async sendVehicle() {
+            if(this.update) {
+                await this.CallApi(this.urlBase + '/api/vehicles/' + this.vehicle_to_update, 'PUT', this.vehicle);
+                this.getVehicles();
+                this.update = false;
+            } else {
+                console.log(this.vehicle);
+                const res = await this.CallApi(this.urlBase + '/api/vehicles/', 'POST', this.vehicle);
+                console.log(res);
+                this.getVehicles();
+            }
+            this.vehicle = new Vehicle();
+        },
+        async deleteVehicle(id){
+            await this.CallApi(this.urlBase + '/api/vehicles/' + id, 'DELETE', null);
+            this.getVehicles();
+        }
+    }
+})
     
 </script>
