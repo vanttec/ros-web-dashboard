@@ -7,58 +7,58 @@
                        <form @submit.prevent="sendVehicle">
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._vehicle_name" placeholder="Insert vehicle name" class="form-control">
+                                <input type="text" v-model="vehicle.vehicle_name" placeholder="Insert vehicle name" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._description" placeholder="Insert vehicle description" class="form-control">
+                                <input type="text" v-model="vehicle.description" placeholder="Insert vehicle description" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._dimensions" placeholder="Insert vehicle dimensions" class="form-control">
+                                <input type="text" v-model="vehicle.dimensions" placeholder="Insert vehicle dimensions" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._mass" placeholder="Insert vehicle mass" class="form-control">
+                                <input type="text" v-model="vehicle.mass" placeholder="Insert vehicle mass" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._thruster_name" placeholder="Insert thruster brand" class="form-control">
+                                <input type="text" v-model="vehicle.thruster_name" placeholder="Insert thruster brand" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._max_thrust" placeholder="Insert maximum thrust" class="form-control">
+                                <input type="text" v-model="vehicle.max_thrust" placeholder="Insert maximum thrust" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._sensors" placeholder="Insert sensors" class="form-control">
+                                <input type="text" v-model="vehicle.sensors" placeholder="Insert sensors" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._Power_System" placeholder="Insert Power System" class="form-control">
+                                <input type="text" v-model="vehicle.power_system" placeholder="Insert Power System" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._Processor" placeholder="Insert Processor" class="form-control">
+                                <input type="text" v-model="vehicle.processor" placeholder="Insert Processor" class="form-control">
                             </div>
                         </div>
 
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._communications" placeholder="Insert Comms" class="form-control">
+                                <input type="text" v-model="vehicle.communications" placeholder="Insert Comms" class="form-control">
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <input type="text" v-model="vehicle._software" placeholder="Insert Software" class="form-control">
+                                <input type="text" v-model="vehicle.software" placeholder="Insert Software" class="form-control">
                             </div>
                         </div>
                         <template v-if="update == false">
@@ -91,17 +91,17 @@
                     </thead>
                     <tbody>
                         <tr v-for="vehicle in vehicles" :key="vehicle._id">
-                            <td>{{vehicle._vehicle_name}}</td>
-                            <td>{{vehicle._description}}</td>
-                            <td>{{vehicle._dimensions}}</td>
-                            <td>{{vehicle._mass}}</td>
-                            <td>{{vehicle._thruster_name}}</td>
-                            <td>{{vehicle._max_thrust}}</td>
-                            <td>{{vehicle._sensors}}</td>
-                            <td>{{vehicle._Power_System}}</td>
-                            <td>{{vehicle._Processor}}</td>
-                            <td>{{vehicle._communications}}</td>
-                            <td>{{vehicle._software}}</td>
+                            <td>{{vehicle.vehicle_name}}</td>
+                            <td>{{vehicle.description}}</td>
+                            <td>{{vehicle.dimensions}}</td>
+                            <td>{{vehicle.mass}}</td>
+                            <td>{{vehicle.thruster_name}}</td>
+                            <td>{{vehicle.max_thrust}}</td>
+                            <td>{{vehicle.sensors}}</td>
+                            <td>{{vehicle.Power_System}}</td>
+                            <td>{{vehicle.Processor}}</td>
+                            <td>{{vehicle.communications}}</td>
+                            <td>{{vehicle.software}}</td>
                             <td>
                                 <button @click="deleteVehicle(vehicle._id)" class="btn btn-danger">
                                     Delete
