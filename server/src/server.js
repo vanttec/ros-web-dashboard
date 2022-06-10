@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const morgan = require('morgan');
 const cors = require('cors');
 const vehicle_routes =  require('./routes/vehicle.routes');
 const app = express();
@@ -12,11 +12,12 @@ require('./mongo_connection');
 app.set('port', 3000);
 
 //Middlewares
+app.use(morgan('dev'));
+app.use(express.json()); // server will receive json formats
 app.use(cors());
 
 //Routes
 app.use('/api/vehicles', vehicle_routes);
-
 //Static Files
 //app.use(express.static(__dirname + '/public'));
 

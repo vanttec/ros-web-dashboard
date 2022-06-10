@@ -121,17 +121,17 @@
 <script>
 class Vehicle { // Por si una tarea tiene muchos campos, nos ahorramos escribir una por una
     constructor(vehicle_name, description, dimensions, mass, thruster_name, max_thrust, sensors, power_system, processor, comms, software ) {
-        this._vehicle_name = vehicle_name,
-        this._description = description,
-        this._dimensions = dimensions,
-        this._mass = mass,
-        this._thruster_name = thruster_name,
-        this._max_thrust = max_thrust,
-        this._sensors = sensors,
-        this._Power_System = power_system,
-        this._Processor = processor,
-        this._communications = comms,
-        this._software = software
+        this.vehicle_name = vehicle_name,
+        this.description = description,
+        this.dimensions = dimensions,
+        this.mass = mass,
+        this.thruster_name = thruster_name,
+        this.max_thrust = max_thrust,
+        this.sensors = sensors,
+        this.Power_System = power_system,
+        this.Processor = processor,
+        this.communications = comms,
+        this.software = software
     }
 }
 export default ({
