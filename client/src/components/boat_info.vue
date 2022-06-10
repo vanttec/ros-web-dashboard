@@ -98,8 +98,8 @@
                             <td>{{vehicle.thruster_name}}</td>
                             <td>{{vehicle.max_thrust}}</td>
                             <td>{{vehicle.sensors}}</td>
-                            <td>{{vehicle.Power_System}}</td>
-                            <td>{{vehicle.Processor}}</td>
+                            <td>{{vehicle.power_system}}</td>
+                            <td>{{vehicle.processor}}</td>
                             <td>{{vehicle.communications}}</td>
                             <td>{{vehicle.software}}</td>
                             <td>
@@ -128,8 +128,8 @@ class Vehicle { // Por si una tarea tiene muchos campos, nos ahorramos escribir 
         this.thruster_name = thruster_name,
         this.max_thrust = max_thrust,
         this.sensors = sensors,
-        this.Power_System = power_system,
-        this.Processor = processor,
+        this.power_system = power_system,
+        this.processor = processor,
         this.communications = comms,
         this.software = software
     }
