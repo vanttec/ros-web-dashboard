@@ -5,7 +5,7 @@
             <div class="col-md-4">
                 <div class="card">
                        <form @submit.prevent="sendVehicle">
-                        <div class="card-body">
+                        <div class="card-body" v-show="show">
                             <div>
                                 <input type="text" v-model="vehicle.vehicle_name" placeholder="Insert vehicle name" class="form-control">
                             </div>
@@ -141,7 +141,6 @@ export default ({
             vehicles: [],
             update: false,
             vehicle_to_update: '',
-
             vehicleId: '',
             urlBase: 'http://localhost:3000'
         }
@@ -193,7 +192,7 @@ export default ({
         async deleteVehicle(id){
             await this.CallApi(this.urlBase + '/api/vehicles/' + id, 'DELETE', null);
             this.getVehicles();
-        }
+        },
     }
 })
     
