@@ -3,9 +3,9 @@
     <div class="container">
         <div class="row pt-5">
             <div class="col-md-4">
-                <div class="card">
+                <div class="card" v-if="verif">
                        <form @submit.prevent="sendVehicle">
-                        <div class="card-body" v-show="show">
+                        <div class="card-body">
                             <div>
                                 <input type="text" v-model="vehicle.vehicle_name" placeholder="Insert vehicle name" class="form-control">
                             </div>
@@ -61,6 +61,7 @@
                                 <input type="text" v-model="vehicle.software" placeholder="Insert Software" class="form-control">
                             </div>
                         </div>
+                        
                         <template v-if="update == false">
                             <button class="btn btn-primary">Send</button>
                         </template>
@@ -71,7 +72,6 @@
                             <textarea cols="30" rows="10" class="form-control" placeholder="Insert a description"></textarea>
                         </div>
                     </form>
-
                 </div>
             </div>
             <div class="col-md-8">
@@ -103,22 +103,30 @@
                             <td>{{vehicle.communications}}</td>
                             <td>{{vehicle.software}}</td>
                             <td>
-                                <button @click="deleteVehicle(vehicle._id)" class="btn btn-danger">
+                                <button v-if="verif" @click="deleteVehicle(vehicle._id)" class="btn btn-danger">
                                     Delete
                                 </button>
-                                <button @click="updateVehicle(vehicle._id)" class="btn btn-secondary">
+                                <button v-if="verif" @click="updateVehicle(vehicle._id)" class="btn btn-secondary">
                                     Update
                                 </button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+                <button v-if="show2" @click="showPass" type="button" class="btn btn-primary">{{ show ? 'Editar' : 'Editar' }}</button>
+                <label v-if="show" for="Pass">Password:</label>
+                <input v-if="show" type="password" id="myPsw" value="mypwd345" size="20"/>
+                <br>
+                <button v-if="show" @click="verify" type="button" class="btn btn-primary">{{ verify ? 'Login' : 'Login' }}</button>
+                <p id="demo"></p>
             </div>
+            
         </div>
     </div>
 </template>
 
 <script>
+
 class Vehicle { // Por si una tarea tiene muchos campos, nos ahorramos escribir una por una
     constructor(vehicle_name, description, dimensions, mass, thruster_name, max_thrust, sensors, power_system, processor, comms, software ) {
         this.vehicle_name = vehicle_name,
@@ -142,6 +150,9 @@ export default ({
             update: false,
             vehicle_to_update: '',
             vehicleId: '',
+            show: false,
+            verif: false,
+            show2: true,
             urlBase: 'http://localhost:3000'
         }
     },
@@ -192,6 +203,21 @@ export default ({
         async deleteVehicle(id){
             await this.CallApi(this.urlBase + '/api/vehicles/' + id, 'DELETE', null);
             this.getVehicles();
+        },
+
+        showPass(){
+            this.show = true
+            this.show2 = false
+        },
+
+        verify(){
+            var x = document.getElementById("myPsw").value;
+            if(x == 'admin'){
+                this.verif = true
+                this.show = false
+            }
+            
+            
         },
     }
 })
