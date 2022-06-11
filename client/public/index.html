@@ -7,6 +7,9 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
+    <!--------ROS----->
+    <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+    <script src="ros-connection.js"></script>
   </head>
 
 <body>
@@ -64,6 +67,7 @@
           <h5 class="div2">VEHICLES STATE</h5>
           <div>
           <br><p> Pose     (x,y,theta) </p></br>
+          <p><span id="pos"></span></p>
           <!--Arreglar esto-->
           <!-- <img src="/img/tiger.jpg" class="img-fluid divImg" alt="Un tigre" width="300" height="200"> -->
           <br><p class="text1">Speed</p><p class="text2">(u,v,r)</p></br>
@@ -97,6 +101,8 @@
     </div>
 
       <!----------SECTION4----------->
+      
+
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-6">
@@ -110,7 +116,8 @@
             <h5 class="div2">CONNECTION TYPE</h5>
             <button type="button" class="btn btn-primary">XBEES</button>
             <button type="button" class="btn btn-primary">SSH</button>
-            <p>Connection: </p>
+            <p>Connection status: </p> 
+            <p><span id="status"></span></p>
             <button type="button" class="btn btn-success">.......</button>
           </div>
         </div>
