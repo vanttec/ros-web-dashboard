@@ -138,7 +138,7 @@
 
     <!-- <script src="../src/main.js"></script> -->
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
       var newCoord = ol.proj.transform([25.653408, -100.291116], 'EPSG:4326', 'EPSG:3857');
       var map = new ol.Map({
         target: 'map',
@@ -151,8 +151,48 @@
           center: ol.proj.fromLonLat([259.7085, 25.653408]),
           zoom: 18.5
         })
-      });
-    </script>
+      }); -->
+
+      <script type="text/javascript">
+        // tile layer
+        var tile = new ol.layer.Tile({
+          source: new ol.source.OSM()
+        });
+        // vector layer
+        const coords = [259.70857, 25.653408, 10, 259.7085, 25.65340875, 10,259.708525, 25.653408, 10];
+        let path = [];
+        for(let i = 0; i < coords.length; i+=3) {
+          path.push([coords[i], coords[i + 1], coords[i + 2]]);
+        }
+        const lineString = new ol.geom.LineString(path);
+        lineString.transform('EPSG:4326', 'EPSG:3857');
+        const feature = new ol.Feature({
+          geometry: lineString
+        });
+        const source = new ol.source.Vector();
+        source.addFeature(feature);
+        var vector = new ol.layer.Vector({
+          source,
+          style: new ol.style.Style({
+            stroke: new ol.style.Stroke({
+              color: 'red',
+              width: 3
+            })
+          })
+        })
+        var map = new ol.Map({
+          layers: [
+            tile,
+            //image,
+            vector
+          ],
+          target: 'map',
+          view: new ol.View({
+            center: ol.proj.fromLonLat([259.7085, 25.653408]),
+            zoom: 18.5
+          })
+        });
+      </script>
        
 </body>
 <script src="ros-connection.js"></script>
