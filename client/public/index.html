@@ -9,7 +9,6 @@
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
     <!--------ROS----->
     <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
-    <script src="ros-connection.js"></script>
   </head>
 
 <body>
@@ -66,15 +65,19 @@
           <div class="div1">
           <h5 class="div2">VEHICLES STATE</h5>
           <div>
-          <br><p> Pose     (x,y,theta) </p></br>
-          <p><span id="msg"></span></p>
-          <!--Arreglar esto-->
-          <!-- <img src="/img/tiger.jpg" class="img-fluid divImg" alt="Un tigre" width="300" height="200"> -->
-          <br><p class="text1">Speed</p><p class="text2">(u,v,r)</p></br>
-          <br><p class="text1">Acceleration</p><p class="text2">(u',v',r')</p></br>
-          <br><p> Next Waypoint                 (x_d,y_d,theta_d) </p></br>
-          <br><p> Thrust                 (left, right) </p></br>
 
+          <br><p> Position and attitude </p></br>
+          <p>x = <span id="pose.x"></span></p>
+          <p>y = <span id="pose.y"></span></p>
+          <p>theta = <span id="pose.theta"></span></p>
+
+          <br><p> Local speed </p></br>
+          <p>u = <span id="u"></span></p>
+          <p>v = <span id="v"></span></p>
+          <p>r = <span id="r"></span></p>
+
+          <br><p> Next Waypoint   (x_d,y_d,theta_d) </p></br>
+          <br><p> Thrust          (left, right) </p></br>
           </div>
           </div>
       </div>
@@ -150,6 +153,6 @@
     </script>
        
 </body>
-
+<script src="ros-connection.js"></script>
   
 </html> 

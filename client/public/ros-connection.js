@@ -25,13 +25,28 @@ txt_listener.subscribe(function(m) {
   document.getElementById("msg").innerHTML = m.data;
 });
 
-//Pos Subscriber TESTING 
-var pos_listener = new ROSLIB.Topic({
+// Pose2D Subscriber
+var pose_listener = new ROSLIB.Topic({
   ros : ros,
-  name : '/Imu',
-  messageType : 'sensor_msgs/Imu'
+  name : '/vectornav/ins_2d/NED_pose',
+  messageType : 'geometry_msgs/Pose2D'
 });
 
-pos_listener.subscribe(function(p) {
-  document.getElementById("pos").innerHTML = p.data;
+pose_listener.subscribe(function(pose) {
+  document.getElementById("pose.x").innerHTML = pose.x;
+  document.getElementById("pose.y").innerHTML = pose.y;
+  document.getElementById("pose.theta").innerHTML = pose.theta;
+});
+
+// Velocity Subscriber
+var vel_listener = new ROSLIB.Topic({
+  ros : ros,
+  name : '/vectornav/ins_2d/local_vel',
+  messageType : 'geometry_msgs/Vector3'
+});
+
+vel_listener.subscribe(function(vel) {
+  document.getElementById("u").innerHTML = vel.x;
+  document.getElementById("v").innerHTML = vel.y;
+  document.getElementById("r").innerHTML = vel.z;
 });
