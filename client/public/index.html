@@ -11,6 +11,7 @@
     <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
     <script type="text/javascript" src="http://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
     <script type="text/javascript" src="http://static.robotwebtools.org/mjpegcanvasjs/current/mjpegcanvas.min.js"></script>
+  
   </head>
 
 <body onload="video_stream()">
@@ -128,6 +129,7 @@
         </div>
         </div>
       </div>
+    </div>
 
      <!------FOOTER----------->
      <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
@@ -153,48 +155,50 @@
         })
       }); -->
 
-      <script type="text/javascript">
-        // tile layer
-        var tile = new ol.layer.Tile({
-          source: new ol.source.OSM()
-        });
-        // vector layer
-        const coords = [259.70857, 25.653408, 10, 259.7085, 25.65340875, 10,259.708525, 25.653408, 10];
-        let path = [];
-        for(let i = 0; i < coords.length; i+=3) {
-          path.push([coords[i], coords[i + 1], coords[i + 2]]);
-        }
-        const lineString = new ol.geom.LineString(path);
-        lineString.transform('EPSG:4326', 'EPSG:3857');
-        const feature = new ol.Feature({
-          geometry: lineString
-        });
-        const source = new ol.source.Vector();
-        source.addFeature(feature);
-        var vector = new ol.layer.Vector({
-          source,
-          style: new ol.style.Style({
-            stroke: new ol.style.Stroke({
-              color: 'red',
-              width: 3
-            })
-          })
-        })
-        var map = new ol.Map({
-          layers: [
-            tile,
-            //image,
-            vector
-          ],
-          target: 'map',
-          view: new ol.View({
-            center: ol.proj.fromLonLat([259.7085, 25.653408]),
-            zoom: 18.5
-          })
-        });
-      </script>
+      
        
 </body>
+<script type="text/javascript">
+  // tile layer
+  var tile = new ol.layer.Tile({
+    source: new ol.source.OSM()
+  });
+  // vector layer
+  const coords = [259.70857, 25.653408, 10, 259.7085, 25.65340875, 10,259.708525, 25.653408, 10];
+  let path = [];
+  for(let i = 0; i < coords.length; i+=3) {
+    path.push([coords[i], coords[i + 1], coords[i + 2]]);
+  }
+  const lineString = new ol.geom.LineString(path);
+  lineString.transform('EPSG:4326', 'EPSG:3857');
+  const feature = new ol.Feature({
+    geometry: lineString
+  });
+  const source = new ol.source.Vector();
+  source.addFeature(feature);
+  var vector = new ol.layer.Vector({
+    source,
+    style: new ol.style.Style({
+      stroke: new ol.style.Stroke({
+        color: 'red',
+        width: 3
+      })
+    })
+  })
+  var map = new ol.Map({
+    layers: [
+      tile,
+      //image,
+      vector
+    ],
+    target: 'map',
+    view: new ol.View({
+      center: ol.proj.fromLonLat([259.7085, 25.653408]),
+      zoom: 18.5
+    })
+  });
+</script>
+
 <script src="ros-connection.js"></script>
   
 </html> 

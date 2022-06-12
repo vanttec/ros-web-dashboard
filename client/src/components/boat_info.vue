@@ -104,7 +104,7 @@
                             <td>{{vehicle.software}}</td>
                             <td>
                                 <button v-if="verif" @click="deleteVehicle(vehicle._id)" class="btn btn-danger">
-                                    Deleteeeeeeeeeeeeeeeeee
+                                    Delete
                                 </button>
                                 <button v-if="verif" @click="updateVehicle(vehicle._id)" class="btn btn-secondary">
                                     Update
@@ -113,7 +113,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <p>ggg</p>
                 <button v-if="show2" @click="showPass" type="button" class="btn btn-primary">{{ show ? 'Editar' : 'Editar' }}</button>
                 <label v-if="show" for="Pass">Password:</label>
                 <input v-if="show" type="password" id="myPsw" value="mypwd345" size="20"/>
