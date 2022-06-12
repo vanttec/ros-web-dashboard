@@ -4,6 +4,7 @@ var ros = new ROSLIB.Ros({
 
 ros.on('connection', function() {
   document.getElementById("status").innerHTML = "Connected";
+  setCamera();
 });
 
 ros.on('error', function(error) {
@@ -50,3 +51,28 @@ vel_listener.subscribe(function(vel) {
   document.getElementById("v").innerHTML = vel.y;
   document.getElementById("r").innerHTML = vel.z;
 });
+
+// Camera Subscriber
+// var imageTopic = new ROSLIB.Topic({
+//   ros : ros,
+//   name : '/zed/zed_node/left_raw/image_raw_color',
+//   messageType : 'sensor_msgs/Image'
+// });
+
+function video_stream() {
+  // let without_wss = this.rosbridge_address.split('ws://')[1]
+  // console.log(without_wss)
+  // let domain = without_wss.split('/')[0] + '/' + without_wss.split('/')[1]
+  // console.log(domain)
+  // let host = domain + '/cameras'
+  console.log('localhost');
+  let viewer = new MJPEGCANVAS.Viewer({
+      divID: 'robot_camera',
+      // host: host,
+      host: 'localhost',
+      width: 320,
+      height: 240,
+      topic: '/r200/camera/color/image_raw',
+      ssl: true,
+  })
+}
