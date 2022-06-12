@@ -5,7 +5,9 @@
     color: rgb(0, 119, 255);
     font-size: 30px;
 }
-
+.footer{
+  margin:0%;
+}
 .nav {
     background-color: #03193d;
     color: aliceblue;
