@@ -11,6 +11,16 @@
     <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
     <script type="text/javascript" src="http://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
     <script type="text/javascript" src="http://static.robotwebtools.org/mjpegcanvasjs/current/mjpegcanvas.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  
   </head>
 
 <body onload="video_stream()">
@@ -45,8 +55,8 @@
       <div class ="row justify-content-center">
         <div class="div1">
           <h5 class="div2">MAPA</h5>
-          <div id="map" class="map"> </div>
-
+          <div id="map" class="map"> 
+          </div>
         </div>
       </div>
     </div>
@@ -54,80 +64,87 @@
     <!----------SECTION2----------->
     <div class="container">
       <div class="row justify-content-center">
+        <!--PRIMER CUADRO -->
         <div class="col-6">
           <div class="div1">
             <h5 class="div2">PERCEPTION DATA</h5>
-            <div id="robot_camera"></div>
-            <!-- <img src="./img/perception1.jpg" class="img-fluid divImg" alt="perception" width="300" >
-            <img src="./img/perception2.jpg" class="img-fluid divImg" alt="perception" width="300" > -->
-
+              <div id="robot_camera"></div>
+            <img src="./img/perception1.jpg" class="img-fluid divImg" alt="perception" width="400" height="400" >
+          </div>
         </div>
-      </div>
+        <!--SEGUNDO CUADRO -->
         <div class="col-6">
           <div class="div1">
-          <h5 class="div2">VEHICLES STATE</h5>
+            <h5 class="div2">VEHICLES STATE</h5>
           <div>
 
-          <br><p> Position and attitude </p></br>
-          <p>x = <span id="pose.x"></span></p>
-          <p>y = <span id="pose.y"></span></p>
-          <p>theta = <span id="pose.theta"></span></p>
+          <br><p class ="p"> Position and attitude </p></br>
+          <p class ="p">x = <span id="pose.x"></span></p>
+          <p class ="p">y = <span id="pose.y"></span></p>
+          <p class ="p">theta = <span id="pose.theta"></span></p>
 
-          <br><p> Local speed </p></br>
-          <p>u = <span id="u"></span></p>
-          <p>v = <span id="v"></span></p>
-          <p>r = <span id="r"></span></p>
+          <br><p class ="p"> Local speed </p></br>
+          <p class ="p">u = <span id="u"></span></p>
+          <p class ="p">v = <span id="v"></span></p>
+          <p class ="p">r = <span id="r"></span></p>
 
-          <br><p> Next Waypoint   (x_d,y_d,theta_d) </p></br>
-          <br><p> Thrust          (left, right) </p></br>
-          </div>
-          </div>
+          <br><p class ="p"> Next Waypoint   (x_d,y_d,theta_d) </p></br>
+          <br><p class ="p"> Thrust          (left, right) </p></br>
+          
+        </div>
       </div>
     </div>
 
     <!----------SECTION3----------->
     <div class="container">
       <div class="row justify-content-center">
+        <!--PRIMER CUADRO -->
         <div class="col-6">
           <div class="div1">
-          <h5 class="div2">LAST CONNECTION</h5>
-          <br><p> May, 2022 </p>
-        
+            <h5 class="div2">LAST CONNECTION</h5>
+            <br><p class ="p"> May, 2022 </p>
+            <p class ="p"> :) </p><br><br>
+          </div>
         </div>
-      </div>
+        <!--SEGUNDO CUADRO -->
         <div class="col-6">
           <div class="div1">
-          <h5 class="div2">BEHAVIOUR STATUS</h5>
-          <br><p> Machine State </p>
-          <p>State0 </p>
+            <h5 class="div2">BEHAVIOUR STATUS</h5>
+            <br><p class ="p"> Machine State </p>
+            <p class ="p">State0 </p><br><br>
+          </div>
         </div>
-      </div>
       </div>
     </div>
 
       <!----------SECTION4----------->
-      
-
       <div class="container">
         <div class="row justify-content-center">
+          <!--PRIMER CUADRO -->
           <div class="col-6">
             <div class="div1">
-            <h5 class="div2">BATTERY STATUS</h5>
-            <img src="./img/battery.png" class="img-fluid divImg" alt="bateria" width="100" >
+              <h5 class="div2">BATTERY STATUS</h5>
+              <img src="./img/battery.png" class="img-fluid divImg" alt="bateria" width="100" ><br>
+            </div>
           </div>
-        </div>
+          <!--PRIMER CUADRO -->
           <div class="col-6">
             <div class="div1">
-            <h5 class="div2">CONNECTION TYPE</h5>
-            <button type="button" class="btn btn-primary">XBEES</button>
-            <button type="button" class="btn btn-primary">SSH</button>
-            <p>Connection status: </p> 
-            <p><span id="status"></span></p>
-            <button type="button" class="btn btn-success">.......</button>
+              <h5 class="div2">CONNECTION TYPE</h5><br>
+              <div id="app_color">
+                <button @click="btnGreen" type="button" class="btn btn-light" :style="{'background-color': color2}">XBEES</button>
+                <button @click="btnBlue" type="button" class="btn btn-light" :style="{'background-color': color}">SSH</button>
+              </div>
+              <p class ="p">Connection status: </p> 
+              <p><span id="status"></span></p>
+              <button type="button" class="btn btn-success">.......</button><br><br>
+            </div>
           </div>
-        </div>
         </div>
       </div>
+    
+    </div>
+    </div>
 
      <!------FOOTER----------->
      <div class="footer">
@@ -198,6 +215,11 @@
           })
         });
       </script>
-       <script src="ros-connection.js"></script>
-  
+
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/vue@3"></script> 
+      <script src="ros-connection.js"></script>
+      <script src="show.js"></script>
+
 </html> 

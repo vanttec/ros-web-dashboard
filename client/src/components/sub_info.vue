@@ -115,7 +115,7 @@
                 </table>
                 <button v-if="show2" @click="showPass" type="button" class="btn btn-primary">{{ show ? 'Editar' : 'Editar' }}</button>
                 <label v-if="show" for="Pass">Password:</label>
-                <input v-if="show" type="password" id="myPsw" value="admin" size="20"/>
+                <input v-if="show" type="password" id="myPsw" value="mypwd345" size="20"/>
                 <br>
                 <button v-if="show" @click="verify" type="button" class="btn btn-primary">{{ verify ? 'Login' : 'Login' }}</button>
                 <p id="demo"></p>

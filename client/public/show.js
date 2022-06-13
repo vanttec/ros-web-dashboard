@@ -6,15 +6,21 @@ Vue.createApp({
 
     data(){
         return{
-            show: false,
+            color: "FFFFFF",
+            color2: "FFFFFF",
         }
     },
 
     methods: {
-        toogleShow(){
-            this.show = !this.show
-        },
+        btnGreen() {
+            this.color = '#FFFFFF';
+            this.color2 = '#039BE5';
+          },
+        btnBlue() {
+            this.color = '#039BE5';
+            this.color2 = '#FFFFFF';
+          },
     },
 
 
-}).mount('#app_show');
+}).mount('#app_color');
