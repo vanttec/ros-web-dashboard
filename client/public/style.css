@@ -5,7 +5,9 @@
     color: rgb(0, 119, 255);
     font-size: 30px;
 }
-
+.footer{
+  margin:0%;
+}
 .nav {
     background-color: #03193d;
     color: aliceblue;
@@ -28,15 +30,21 @@
 
 .div1{
     text-align: center;
-    background-color: #a9a9a9;
+    background-color: #bfc4d0;
     margin: 10px;
+
 }
 .div2 {
     background-color: #0200cd;
-    background-clip: content-box;
+    background-clip: padding-box;
+    padding: 2%;
     color: white;
     text-decoration-color: white;
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    font-weight: bold;  
+    font-size: 20px; 
+    height: 300;
 }
 
 .div3 {
@@ -45,6 +53,14 @@
 }
 
 
+
+.p {
+  color: rgb(0, 0, 0);
+  text-decoration-color: white;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
+  font-size: 18px; 
+}
 
 .divImg{
   margin:5px;
@@ -75,4 +91,13 @@
     left: 0;
 
     min-height: 150px;
+}
+
+.h4{
+ font-family: Verdana, Geneva, Tahoma, sans-serif; 
+ font-weight: bold; 
+ font-style: oblique; 
+ font-size: 60px; 
+ text-align: center;
+ align-content: center; 
 }
