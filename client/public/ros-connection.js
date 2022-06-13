@@ -4,7 +4,7 @@ var ros = new ROSLIB.Ros({
 
 ros.on('connection', function() {
   document.getElementById("status").innerHTML = "Connected";
-  setCamera();
+  video_stream();
 });
 
 ros.on('error', function(error) {
@@ -26,18 +26,31 @@ txt_listener.subscribe(function(m) {
   document.getElementById("msg").innerHTML = m.data;
 });
 
-// Pose2D Subscriber
-var pose_listener = new ROSLIB.Topic({
+// NED Pose Subscriber
+var ned_pose_listener = new ROSLIB.Topic({
   ros : ros,
   name : '/vectornav/ins_2d/NED_pose',
   messageType : 'geometry_msgs/Pose2D'
 });
 
-pose_listener.subscribe(function(pose) {
-  document.getElementById("pose.x").innerHTML = pose.x;
-  document.getElementById("pose.y").innerHTML = pose.y;
-  document.getElementById("pose.theta").innerHTML = pose.theta;
+ned_pose_listener.subscribe(function(pose) {
+  document.getElementById("ned_pose.x").innerHTML = pose.x;
+  document.getElementById("ned_pose.y").innerHTML = pose.y;
+  document.getElementById("ned_pose.theta").innerHTML = pose.theta;
 });
+
+// INS Pose Subscriber
+// var ins_pose_listener = new ROSLIB.Topic({
+//   ros : ros,
+//   name : '/vectornav/ins_2d/ins_pose',
+//   messageType : 'geometry_msgs/Pose2D'
+// });
+
+// ins_pose_listener.subscribe(function(pose) {
+//   document.getElementById("ins_pose.x").innerHTML = pose.x;
+//   document.getElementById("ins_pose.y").innerHTML = pose.y;
+//   document.getElementById("ins_pose.theta").innerHTML = pose.theta;
+// });
 
 // Velocity Subscriber
 var vel_listener = new ROSLIB.Topic({
@@ -52,12 +65,38 @@ vel_listener.subscribe(function(vel) {
   document.getElementById("r").innerHTML = vel.z;
 });
 
-// Camera Subscriber
-// var imageTopic = new ROSLIB.Topic({
-//   ros : ros,
-//   name : '/zed/zed_node/left_raw/image_raw_color',
-//   messageType : 'sensor_msgs/Image'
-// });
+// Waypoint subscriber
+var waypoints = new ROSLIB.Topic({
+  ros : ros,
+  name : '/mission/waypoints',
+  messageType : 'std_msgs/Float32MultiArray'
+});
+
+waypoints.subscribe(function(waypoint) {
+  document.getElementById("waypoints").innerHTML = waypoint.data;
+});
+
+// Left thruster Subscriber
+var left_thruster = new ROSLIB.Topic({
+  ros : ros,
+  name : '/usv_control/controller/left_thruster',
+  messageType : 'std_msgs/Float64'
+});
+
+left_thruster.subscribe(function(msg) {
+  document.getElementById("left_thrust").innerHTML = msg.data;
+});
+
+// Right thruster Subscriber
+var right_thruster = new ROSLIB.Topic({
+  ros : ros,
+  name : '/usv_control/controller/right_thruster',
+  messageType : 'std_msgs/Float64'
+});
+
+right_thruster.subscribe(function(msg) {
+  document.getElementById("right_thrust").innerHTML = msg.data;
+});
 
 function video_stream() {
   // let without_wss = this.rosbridge_address.split('ws://')[1]
