@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const taskSchemaVehicle = new mongoose.Schema({
+    vehicle_type: String,
     vehicle_name: String,
     description: String,
     dimensions: Array,
