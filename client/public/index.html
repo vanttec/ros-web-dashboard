@@ -24,7 +24,7 @@
   </head>
 
 <!-- <body onload="video_stream()"> -->
-<body onload="video_stream()">
+<body>
 
     <!--------HEADER----->
     <div class="header">
@@ -108,43 +108,45 @@
         <!--PRIMER CUADRO -->
         <div class="col-6">
           <div class="div1">
-            <h5 class="div2">LAST CONNECTION</h5>
-            <br><p class ="p"> June, 2022 </p>
-            <p class ="p"> :) </p><br><br>
+            <h5 class="div2">BATTERY STATUS</h5><br>
+            <!-- <img src="./img/battery.png" class="img-fluid divImg" alt="bateria" width="100" ><br> -->
+            <h3><span id="battery"></span></h3>
           </div>
         </div>
-        <!--SEGUNDO CUADRO -->
+        <!--PRIMER CUADRO -->
         <div class="col-6">
           <div class="div1">
-            <h5 class="div2">BEHAVIOUR STATUS</h5>
-            <br><p class ="p"> Machine State </p>
-            <p class ="p">State0 </p><br><br>
+            <h5 class="div2">CONNECTION STATUS</h5><br>
+            <!-- <div id="app_color">
+              <button @click="btnGreen" type="button" class="btn btn-light" :style="{'background-color': color2}">XBEES</button>
+              <button @click="btnBlue" type="button" class="btn btn-light" :style="{'background-color': color}">SSH</button>
+            </div> -->
+            <!-- <p class ="p">Connection status: </p>  -->
+            <h3><span id="status"></span></h3>
+            <!-- <button type="button" class="btn btn-success">.......</button><br><br> -->
           </div>
         </div>
       </div>
     </div>
 
       <!----------SECTION4----------->
+
       <div class="container">
         <div class="row justify-content-center">
           <!--PRIMER CUADRO -->
           <div class="col-6">
             <div class="div1">
-              <h5 class="div2">BATTERY STATUS</h5>
-              <img src="./img/battery.png" class="img-fluid divImg" alt="bateria" width="100" ><br>
+              <h5 class="div2">LAST CONNECTION</h5>
+              <br><p class ="p"> June, 2022 </p>
+              <p class ="p"> :) </p><br><br>
             </div>
           </div>
-          <!--PRIMER CUADRO -->
+          <!--SEGUNDO CUADRO -->
           <div class="col-6">
             <div class="div1">
-              <h5 class="div2">CONNECTION TYPE</h5><br>
-              <div id="app_color">
-                <button @click="btnGreen" type="button" class="btn btn-light" :style="{'background-color': color2}">XBEES</button>
-                <button @click="btnBlue" type="button" class="btn btn-light" :style="{'background-color': color}">SSH</button>
-              </div>
-              <p class ="p">Connection status: </p> 
-              <p><span id="status"></span></p>
-              <button type="button" class="btn btn-success">.......</button><br><br>
+              <h5 class="div2">BEHAVIOUR STATUS</h5>
+              <br><p class ="p"> Machine State </p>
+              <p class ="p">State0 </p><br><br>
             </div>
           </div>
         </div>

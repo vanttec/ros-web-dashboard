@@ -18,12 +18,12 @@ ros.on('close', function() {
 // String Subscriber
 var txt_listener = new ROSLIB.Topic({
   ros : ros,
-  name : '/String',
+  name : '/battery_charge',
   messageType : 'std_msgs/String'
 });
 
 txt_listener.subscribe(function(m) {
-  document.getElementById("msg").innerHTML = m.data;
+  document.getElementById("battery").innerHTML = m.data;
 });
 
 // NED Pose Subscriber
