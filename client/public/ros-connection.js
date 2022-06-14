@@ -143,11 +143,13 @@ var tile = new ol.layer.Tile({
 // vector layer
 // const base_lon = -100.291116;
 // const base_lat = 25.653408;
-const base_lon = -100.2913605583;
-const base_lat = 25.65334344373;
-const cartesian_coords = geodetic2cartesian(base_lon, base_lat, base_lat);
-const geodetic_coords = cartesian2geodetic(cartesian_coords.x, cartesian_coords.y, 25*60, 5*85, base_lat);
-const coords = [base_lon, base_lat, 500, geodetic_coords.lon, geodetic_coords.lat, 500];
+var base_lon = -100.2913605583;
+var base_lat = 25.65334344373;
+var cartesian_coords = geodetic2cartesian(base_lon, base_lat, base_lat);
+var geodetic_coords1 = cartesian2geodetic(cartesian_coords.x, cartesian_coords.y, 0*60, 3*85, base_lat);
+var geodetic_coords2 = cartesian2geodetic(cartesian_coords.x, cartesian_coords.y, 20*60, 3*85, base_lat);
+var geodetic_coords3 = cartesian2geodetic(cartesian_coords.x, cartesian_coords.y, 20*60, -3*85, base_lat);
+const coords = [base_lon, base_lat, 500, geodetic_coords1.lon, geodetic_coords1.lat, 500, geodetic_coords2.lon, geodetic_coords2.lat, 500, geodetic_coords3.lon, geodetic_coords3.lat, 500];
 // const coords = [-100.2916,25.6532,141,-100.291116,25.6533005,126];
 
 let path = [];
