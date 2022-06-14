@@ -4,28 +4,50 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
+    <!--------ROS----->
+    <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+    <script type="text/javascript" src="http://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+    <script type="text/javascript" src="http://static.robotwebtools.org/mjpegcanvasjs/current/mjpegcanvas.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  
   </head>
 
+<!-- <body onload="video_stream()"> -->
 <body>
 
     <!--------HEADER----->
     <div class="header">
-      <img src="/img/LogoBlanco.png" alt="LogoBlanco" height="70"> 
+
+      <img src="./img/LogoBlanco.png" alt="LogoBlanco" height="70"> 
+
     </div> 
 
     <!--------MENU------->
     <ul class="nav nav-pills nav-fill">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/index.html">DASHBOARD</a>
+
+        <a class="nav-link active" aria-current="page" href="index.html">DASHBOARD</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/usv.html">USV</a>
+        <a class="nav-link" href="usv.html">USV</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/usv.html">UUV</a>
+        <a class="nav-link" href="uuv.html">UUV</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/usv.html">UGV</a>
+        <a class="nav-link" href="ugv.html">UGV</a>
+
       </li>
     </ul>
 
@@ -34,7 +56,8 @@
       <div class ="row justify-content-center">
         <div class="div1">
           <h5 class="div2">MAPA</h5>
-          <div id="map"> </div>
+          <div id="map" class="map"> 
+          </div>
         </div>
       </div>
     </div>
@@ -42,26 +65,39 @@
     <!----------SECTION2----------->
     <div class="container">
       <div class="row justify-content-center">
+        <!--PRIMER CUADRO -->
         <div class="col-6">
           <div class="div1">
-          <h5 class="div2">PERCEPTION DATA</h5>
-          <img src="/img/tiger.jpg" class="img-fluid divImg" alt="Un tigre" width="300" height="400">
-          <img src="/img/tiger2.jpg" class="img-fluid divImg" alt="Un tigre" width="300" height="400">
-        </div>
-      </div>
-        <div class="col-6">
-          <div class="div1">
-          <h5 class="div2">VEHICLES STATE</h5>
-          <div>
-          <br><p> Pose     (x,y,theta) </p></br>
-          <!--Arreglar esto-->
-          <!-- <img src="/img/tiger.jpg" class="img-fluid divImg" alt="Un tigre" width="300" height="200"> -->
-          <br><p class="text1">Speed</p><p class="text2">(u,v,r)</p></br>
-          <br><p class="text1">Acceleration</p><p class="text2">(u',v',r')</p></br>
-          <br><p> Next Waypoint                 (x_d,y_d,theta_d) </p></br>
-          <br><p> Thrust                 (left, right) </p></br>
-
+            <h5 class="div2">PERCEPTION DATA</h5>
+              <div id="robot_camera"></div>
+            <img src="./img/perception1.jpg" class="img-fluid divImg" alt="perception" width="400" height="400" >
           </div>
+        </div>
+        <!--SEGUNDO CUADRO -->
+        <div class="col-6">
+          <div class="div1">
+            <h5 class="div2">VEHICLES STATE</h5>
+          <div>
+
+          <br><p> Position and attitude </p></br>
+          <p>x [m] = <span id="ned_pose.x"></span></p>
+          <p>y [m] = <span id="ned_pose.y"></span></p>
+          <p>theta [rad] = <span id="ned_pose.theta"></span></p>
+
+          <br><p> Local speed </p></br>
+          <p>u [m/s] = <span id="u"></span></p>
+          <p>v [m/s]= <span id="v"></span></p>
+          <p>r [rad/s]= <span id="r"></span></p>
+
+          <br><p> Current Waypoint </p></br>
+          <p>(x, y, frame) = <span id="waypoints"></span></p>
+          <!-- <p>y = <span id=""></span></p> -->
+
+          <br><p> Thrust </p></br>
+          <p>Left [N] = <span id="left_thrust"></span></p>
+          <p>Right [N] = <span id="right_thrust"></span></p>
+          </div>
+          
           </div>
       </div>
     </div>
@@ -69,48 +105,128 @@
     <!----------SECTION3----------->
     <div class="container">
       <div class="row justify-content-center">
+        <!--PRIMER CUADRO -->
         <div class="col-6">
           <div class="div1">
-          <h5 class="div2">LAST CONNECTION</h5>
-        
+            <h5 class="div2">LAST CONNECTION</h5>
+            <br><p class ="p"> May, 2022 </p>
+            <p class ="p"> :) </p><br><br>
+          </div>
         </div>
-      </div>
+        <!--SEGUNDO CUADRO -->
         <div class="col-6">
           <div class="div1">
-          <h5 class="div2">BEHAVIOUR STATUS</h5>
-          <br><p> Machine State </p>
-          <p>State0 </p>
+            <h5 class="div2">BEHAVIOUR STATUS</h5>
+            <br><p class ="p"> Machine State </p>
+            <p class ="p">State0 </p><br><br>
+          </div>
         </div>
-      </div>
       </div>
     </div>
 
       <!----------SECTION4----------->
       <div class="container">
         <div class="row justify-content-center">
+          <!--PRIMER CUADRO -->
           <div class="col-6">
             <div class="div1">
-            <h5 class="div2">BATTERY STATUS</h5>
-          
+              <h5 class="div2">BATTERY STATUS</h5>
+              <img src="./img/battery.png" class="img-fluid divImg" alt="bateria" width="100" ><br>
+            </div>
           </div>
-        </div>
+          <!--PRIMER CUADRO -->
           <div class="col-6">
             <div class="div1">
-            <h5 class="div2">CONNECTION TYPE</h5>
-            
+              <h5 class="div2">CONNECTION TYPE</h5><br>
+              <div id="app_color">
+                <button @click="btnGreen" type="button" class="btn btn-light" :style="{'background-color': color2}">XBEES</button>
+                <button @click="btnBlue" type="button" class="btn btn-light" :style="{'background-color': color}">SSH</button>
+              </div>
+              <p class ="p">Connection status: </p> 
+              <p><span id="status"></span></p>
+              <button type="button" class="btn btn-success">.......</button><br><br>
+            </div>
           </div>
         </div>
+      </div>
+    
+    </div>
+    </div>
+
+     <!------FOOTER----------->
+     <div class="footer">
+      <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+        <div class="container text-center">
+          <small>Copyright &copy; Vanttec 2022</small>
         </div>
-      </div>
+      </footer>
+     </div>
+    
+  </body>
+     
 
-    <!------FOOTER----------->
-    <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
-      <div class="container text-center">
-        <small>Copyright &copy; Vanttec 2022</small>
-      </div>
-    </footer>
+    <!-- <script src="../src/main.js"></script> -->
 
-</body>
-<script src="../src/main.js"></script>
+    <!-- <script type="text/javascript">
+      var newCoord = ol.proj.transform([25.653408, -100.291116], 'EPSG:4326', 'EPSG:3857');
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM(),
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([259.7085, 25.653408]),
+          zoom: 18.5
+        })
+      }); -->
+
+      <script type="text/javascript">
+        // tile layer
+        var tile = new ol.layer.Tile({
+          source: new ol.source.OSM()
+        });
+        // vector layer
+        const coords = [259.70857, 25.653408, 10, 259.7085, 25.65340875, 10,259.708525, 25.653408, 10];
+        let path = [];
+        for(let i = 0; i < coords.length; i+=3) {
+          path.push([coords[i], coords[i + 1], coords[i + 2]]);
+        }
+        const lineString = new ol.geom.LineString(path);
+        lineString.transform('EPSG:4326', 'EPSG:3857');
+        const feature = new ol.Feature({
+          geometry: lineString
+        });
+        const source = new ol.source.Vector();
+        source.addFeature(feature);
+        var vector = new ol.layer.Vector({
+          source,
+          style: new ol.style.Style({
+            stroke: new ol.style.Stroke({
+              color: 'red',
+              width: 3
+            })
+          })
+        })
+        var map = new ol.Map({
+          layers: [
+            tile,
+            //image,
+            vector
+          ],
+          target: 'map',
+          view: new ol.View({
+            center: ol.proj.fromLonLat([259.7085, 25.653408]),
+            zoom: 18.5
+          })
+        });
+      </script>
+
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/vue@3"></script> 
+      <script src="ros-connection.js"></script>
+      <script src="show.js"></script>
 
 </html> 

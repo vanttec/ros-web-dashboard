@@ -1,6 +1,6 @@
 # web-dashboard
 
-## Project setup (inside the client folder)
+## Project setup (cliente side)
 ```
 npm install vue morgan body-parser cors express mongodb mongoose nodemon
 ```
@@ -10,9 +10,12 @@ npm install vue morgan body-parser cors express mongodb mongoose nodemon
 npm i -D @vue-leaflet/vue-leaflet @babel/cli @babel/core @babel/node @babel/preset-env @vue/compiler-sfc babel-loader vue-loader webpack webpack-cli
 ```
 
-### Compiles and hot-reloads for development
+### Project startup (client side)
 ```
-npm run serve
+npm run dev
+```
+```
+npm run webpack
 ```
 
 <!-- ### Compiles and minifies for production
