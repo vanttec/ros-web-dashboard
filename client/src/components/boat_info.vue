@@ -5,6 +5,17 @@
             <div class="col-md-4">
                 <div class="card" v-if="verif">
                        <form @submit.prevent="sendVehicle">
+                       <div class="card-body">
+                            <div>
+                                <p>Add new vehicle</p>
+                                <select v-model="vehicle.vehicle_type">
+                                    <option disabled value="">Please select one</option>
+                                    <option>boat</option>
+                                    <option>submarine</option>
+                                    <option>car</option>
+                                </select>          
+                            </div>
+                        </div>
                         <div class="card-body">
                             <div>
                                 <input type="text" v-model="vehicle.vehicle_name" placeholder="Insert vehicle name" class="form-control">
@@ -77,6 +88,7 @@
             <div class="col-md-8">
                 <table class="table table-bordered">
                     <thead>
+                        <th>type</th>
                         <th>name</th>
                         <th>description</th>
                         <th>dimensions</th>
@@ -91,18 +103,19 @@
                     </thead>
                     <tbody>
                         <tr v-for="vehicle in vehicles" :key="vehicle._id">
-                            <td>{{vehicle.vehicle_name}}</td>
-                            <td>{{vehicle.description}}</td>
-                            <td>{{vehicle.dimensions}}</td>
-                            <td>{{vehicle.mass}}</td>
-                            <td>{{vehicle.thruster_name}}</td>
-                            <td>{{vehicle.max_thrust}}</td>
-                            <td>{{vehicle.sensors}}</td>
-                            <td>{{vehicle.power_system}}</td>
-                            <td>{{vehicle.processor}}</td>
-                            <td>{{vehicle.communications}}</td>
-                            <td>{{vehicle.software}}</td>
-                            <td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">{{vehicle.vehicle_type}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">{{vehicle.vehicle_name}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">{{vehicle.description}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">{{vehicle.dimensions}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">{{vehicle.mass}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">{{vehicle.thruster_name}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">{{vehicle.max_thrust}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">{{vehicle.sensors}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">{{vehicle.power_system}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">{{vehicle.processor}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">{{vehicle.communications}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">{{vehicle.software}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'boat'">
                                 <button v-if="verif" @click="deleteVehicle(vehicle._id)" class="btn btn-danger">
                                     Delete
                                 </button>
@@ -128,7 +141,8 @@
 <script>
 
 class Vehicle { // Por si una tarea tiene muchos campos, nos ahorramos escribir una por una
-    constructor(vehicle_name, description, dimensions, mass, thruster_name, max_thrust, sensors, power_system, processor, comms, software ) {
+    constructor(vehicle_type, vehicle_name, description, dimensions, mass, thruster_name, max_thrust, sensors, power_system, processor, comms, software ) {
+        this.vehicle_type = vehicle_type,
         this.vehicle_name = vehicle_name,
         this.description = description,
         this.dimensions = dimensions,

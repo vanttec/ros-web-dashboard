@@ -103,19 +103,19 @@
                     </thead>
                     <tbody>
                         <tr v-for="vehicle in vehicles" :key="vehicle._id">
-                            <td v-if=" vehicle.vehicle_type == 'submarine'">{{vehicle.vehicle_type}}</td>
-                            <td v-if=" vehicle.vehicle_type == 'submarine'" >{{vehicle.vehicle_name}}</td>
-                            <td v-if=" vehicle.vehicle_type == 'submarine'" >{{vehicle.description}}</td>
-                            <td v-if=" vehicle.vehicle_type == 'submarine'" >{{vehicle.dimensions}}</td>
-                            <td v-if=" vehicle.vehicle_type == 'submarine'" >{{vehicle.mass}}</td>
-                            <td v-if=" vehicle.vehicle_type == 'submarine'">{{vehicle.thruster_name}}</td>
-                            <td v-if=" vehicle.vehicle_type == 'submarine'">{{vehicle.max_thrust}}</td>
-                            <td v-if=" vehicle.vehicle_type == 'submarine'">{{vehicle.sensors}}</td>
-                            <td v-if=" vehicle.vehicle_type == 'submarine'">{{vehicle.power_system}}</td>
-                            <td v-if=" vehicle.vehicle_type == 'submarine'">{{vehicle.processor}}</td>
-                            <td v-if=" vehicle.vehicle_type == 'submarine'">{{vehicle.communications}}</td>
-                            <td v-if=" vehicle.vehicle_type == 'submarine'">{{vehicle.software}}</td>
-                            <td v-if=" vehicle.vehicle_type == 'submarine'">
+                            <td v-if=" vehicle.vehicle_type == 'car'">{{vehicle.vehicle_type}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'car'" >{{vehicle.vehicle_name}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'car'" >{{vehicle.description}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'car'" >{{vehicle.dimensions}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'car'" >{{vehicle.mass}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'car'">{{vehicle.thruster_name}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'car'">{{vehicle.max_thrust}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'car'">{{vehicle.sensors}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'car'">{{vehicle.power_system}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'car'">{{vehicle.processor}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'car'">{{vehicle.communications}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'car'">{{vehicle.software}}</td>
+                            <td v-if=" vehicle.vehicle_type == 'car'">
                                 <button v-if="verif" @click="deleteVehicle(vehicle._id)" class="btn btn-danger">
                                     Delete
                                 </button>
