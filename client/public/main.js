@@ -1,24 +1,17 @@
 import { createApp } from 'vue'
-import App from './components/boat_info.vue'
-createApp(App).mount('#boat');
-
-import { createApp } from 'vue'
-// import App from './app/components/map.vue'
-import App from './mapApp.vue'
-
-// import { Icon } from 'leaflet';
 import OpenLayersMap from 'vue3-openlayers'
 import 'vue3-openlayers/dist/vue3-openlayers.css'
+// import App from './components/boat_info.vue'
+// createApp(App).mount('#boat');
 
-Vue.config.productionTip = false
-
-// createApp(App).$mount('#app')
+// import App from './app/components/map.vue'
+import App from '../src/components/openlayers3.vue'
 
 const app = createApp(App);
 app.use(OpenLayersMap)
+app.mount('#map')
 
-app.mount('#app')
-
+// createApp(App).$mount('#app')
 
 // delete Icon.Default.prototype._getIconUrl;
 

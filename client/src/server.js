@@ -1,4 +1,5 @@
-import express from 'express';
+// import express from 'express';
+const express = require('express');
 
 const bodyParse = require('body-parser');
 const app = express();
@@ -14,6 +15,7 @@ app.use(bodyParse.json());
 // Static files : sends /public to server, where the html files are located
 app.use(express.static(__dirname + '/../public'));
 app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname));
 
 // Server is listening
 app.listen(app.get('port'), () => {
