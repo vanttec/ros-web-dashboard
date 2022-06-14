@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import App from './components/boat_info.vue'
 createApp(App).mount('#boat');
 
-<<<<<<< HEAD
 import { createApp } from 'vue'
 // import App from './app/components/map.vue'
 import App from './mapApp.vue'
@@ -28,6 +27,3 @@ app.mount('#app')
 //   iconUrl: require('leaflet/dist/images/marker-icon.png'),
 //   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 // });
-=======
-
->>>>>>> master
