@@ -210,8 +210,8 @@ function video_stream() {
       divID: 'robot_camera',
       // host: host,
       host: 'localhost',
-      width: 320,
-      height: 240,
+      width: 400,
+      height: 300,
       topic: '/r200/camera/color/image_raw',
       ssl: true,
   })
